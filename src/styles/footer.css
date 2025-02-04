@@ -1,0 +1,145 @@
+.footer_main_div {
+
+background-color: #1B1B1B;
+min-height: 250px;
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+
+
+}
+
+.main_footer1 {
+
+height: 180px;
+display: grid;
+grid-template-columns: 1fr 1.8fr;
+border-bottom: 1px rgb(77, 74, 74, 0.2) solid ;
+
+}
+
+.div_footerleft{
+
+    border-right: 1px  rgb(77, 74, 74, 0.2) solid ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.footer_icon{
+
+width: 230px;
+height: 60px;
+
+
+}
+
+
+
+.main_footer2 {
+
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    
+    
+
+    }
+
+
+    .main_footer3 {
+
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: #161515;
+        }
+
+.main_footer3 p {
+
+color: rgb(151, 154, 156);;
+font-size: 16px;
+font-weight: 400;
+text-align: center;
+padding: 0;
+margin: 0;
+
+}        
+
+.icon_internal_div {
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+max-width: 400px;
+
+}
+
+
+.icon_internal_div svg {
+    fill: rgb(151, 154, 156);
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+  
+  .icon_internal_div svg:hover {
+    transform: scale(1.2); /* Enlarges the icon by 1.2 times */
+    fill: aliceblue;
+  }
+  
+
+
+  .footer_main_right_side{
+
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+align-items: center;
+
+
+  }
+
+
+  .navigation_1{
+
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+text-align: center;
+height: 100%;
+padding-top: 3%;
+
+
+  }
+
+.navigation_heading {
+
+
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 350;
+
+}
+
+
+.navigation_links {
+
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 3px;
+
+
+
+}

@@ -1,0 +1,187 @@
+.form_main_div {
+
+display:grid;
+grid-template-columns: 1.4fr 1fr;
+justify-content: center;
+height: 100%;
+width: 100%;
+padding: 6%;
+}
+
+.input_feilds_div {
+
+min-height: 600px;
+
+}
+
+.input_inner_div {
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding-right: 5%;
+padding-left: 5%;
+gap: 2%;
+
+
+}
+
+.input_feilds_div h2 {
+
+color: #3C3C3C;
+font-weight: 300;
+font-size: 36px;
+padding-left: 5%;
+padding-bottom: 2%;
+
+
+}
+
+.button_form_page{
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #38B772;
+color: #FFFFFF;
+height: 45px;
+border: none;
+border-radius: 25px;
+font-weight: 400;
+font-size: 16px;
+margin-top: 30px;
+
+
+
+}
+
+
+/* .form_right_side_main_div {
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+} */
+
+
+.second_component_form h3 {
+
+color: #000000;
+font-size: 32px;
+font-weight: 300;
+margin-top: 2%;
+
+
+
+}
+
+.second_component_form {
+
+padding-left: 15%;
+
+
+}
+
+.sub_divs_form_right {
+
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 1%;
+
+
+}
+
+.sub_divs_form_right2 {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    margin-top: 2%;
+    
+    
+    }
+    
+.main_heading_right_side {
+
+color: #000000;
+font-weight: 300;
+font-size: 32px;
+
+
+}
+
+.form_right_left1 {
+
+color: #000000;
+font-size: 24px;
+font-weight: 300;
+text-align: left;
+padding: 0;
+margin: 0;
+
+}
+
+.form_right_left {
+
+color: #000000;
+font-size: 24px;
+font-weight: 400;
+
+
+}
+
+
+.form_right_right {
+color: #000000;
+font-weight: 300;
+font-size: 22px;
+
+
+}
+.second_div_under {
+
+padding-top: 6%;
+
+}
+
+.react-international-phone-input-container .react-international-phone-country-selector-button {
+
+border-radius: 15px;
+width: 60px;
+height: 38px;
+
+}
+.react-international-phone-country-selector {
+
+    width: 60px;
+
+
+}
+.react-international-phone-input-container .react-international-phone-input {
+
+
+border-radius: 15px;
+margin-left: 5px;
+height: 38px;
+}
+
+
+.react-international-phone-country-selector-button__dropdown-arrow {
+
+border: none;
+
+
+}
+.react-international-phone-country-selector-button__button-content {
+
+display:block !Important;
+
+
+}
+
+
+

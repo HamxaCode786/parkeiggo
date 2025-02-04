@@ -1,0 +1,53 @@
+.header_man_div {
+
+display: grid;
+grid-template-columns: 1fr 1fr;
+justify-content: center;
+align-items: center;
+width: 95%;
+margin: 0 auto;
+position: relative;
+top: 20px;
+background-color: #F3F3F3E5;
+background-color: rgb(243 243 243 / 90%);
+height: 65px;
+border-radius: 20px;
+
+
+
+}
+
+.logo_div {
+
+padding-left: 5%;
+opacity: 1;
+
+
+}
+.button_header_div {
+
+display: flex;
+justify-content: flex-start;
+gap: 5%;
+
+
+}
+.button_1{
+
+background: transparent;
+border:none;
+color: #1E1E1E;
+font-weight: 500;
+cursor: pointer;
+
+
+
+}
+
+.header_logo{
+
+width: 148px;
+height: 40px;
+opacity: 100%;
+opacity: 1;
+}
