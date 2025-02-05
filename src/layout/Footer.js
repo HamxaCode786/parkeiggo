@@ -1,5 +1,6 @@
 import React from "react";
 import FooterIcon from "../assets/logo/Parcheggio Logo DarkBACKGROUND.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -12,16 +13,34 @@ const Footer = () => {
 <div className="navigation_1">
 
 <h3 className="navigation_heading">Navigation</h3>
-<h4 className="navigation_links">Home</h4>
-<h4 className="navigation_links">Services</h4>
-
+<h4 className="navigation_links">
+  <Link to="/" className="navigation_link">
+    Home
+  </Link>
+</h4>
+<h4 className="navigation_links">
+  <Link to="/form" className="navigation_link">
+    Services
+  </Link>
+</h4>
 </div>
 <div className="navigation_1">
 <h3 className="navigation_heading" >Legal</h3>
-<h4 className="navigation_links">Privacy Policy</h4>
-<h4 className="navigation_links">Cookie Policy</h4>
-<h4 className="navigation_links">Terms & Services</h4>
-
+<h4 className="navigation_links">
+  <Link to="/privacy-policy" className="navigation_link">
+    Privacy Policy
+  </Link>
+</h4>
+<h4 className="navigation_links">
+  <Link to="/cookie-policy" className="navigation_link">
+    Cookie Policy
+  </Link>
+</h4>
+<h4 className="navigation_links">
+  <Link to="/terms-services" className="navigation_link">
+    Terms & Services
+  </Link>
+</h4>
 
 
 </div>

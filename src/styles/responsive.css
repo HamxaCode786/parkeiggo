@@ -292,13 +292,14 @@ z-index: 9999999999999999999 !important;
     display: flex; /* Make menu a flex container */
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 5% !important;
     background-color: #f9f9f9;
     padding: 20px;
     right: 0; /* Slide the menu in */
     animation: slideFromRight 0.3s ease-in-out forwards; /* Apply animation when opening */
     opacity: 1 !important;
+    padding-top: 35%;
   }
 
   .list_right_side.active {
@@ -376,6 +377,18 @@ display: none;
 } */
 
 
+
+.close-menu {
+  position: fixed; /* Fixes the element in place relative to the viewport */
+  top: 20px; /* 20px from the top */
+  left: 320px; /* 20px from the right */
+  z-index: 10; /* Ensures it stays on top of other elements */
+}
+
+
+
+
+
 }
 
 
@@ -403,12 +416,6 @@ font-size: 13px;
 
 }
 
-.close-menu {
-  position: relative;
-  top: 20px;
-  right: 20px; /* Position it on the right side */
-  left: auto; /* Reset left to avoid conflicts */
-}
 
 
 .list_second_styling {
@@ -436,7 +443,7 @@ font-size: 13px;
 .list_second_styling p strong {
   color: black !important;
   text-decoration: none !important;
-  font-size: 16px !important;
+  font-size: 24px !important;
     font-weight: 500 !important;
 }
 
@@ -449,11 +456,14 @@ font-size: 13px;
 
 .list_second_styling p strong {
   transition: color 0.3s ease, font-size 0.3s ease; /* Apply transition for color and font-size */
+
+
+
 }
 
 
 .active {
-  color: #e4b747; /* Highlight color */
+  color: #38b773; /* Highlight color */
   font-weight: bold;
 }
 

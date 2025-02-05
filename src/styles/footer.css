@@ -135,10 +135,22 @@ padding-top: 3%;
 
 .navigation_links {
 
-    color: #FFFFFF;
+    color: #FFFFFF ! Important;
     font-size: 16px;
     font-weight: 200;
     padding: 3px;
+
+
+
+}
+
+
+.navigation_links a {
+
+  color: #FFFFFF ! Important;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 3px;
 
 
 

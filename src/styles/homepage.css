@@ -141,13 +141,51 @@ margin-top: 1%;
   justify-content: center;
   align-items: baseline; /* Corrected 'last baseline' to 'baseline' */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Example box shadow */
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
 }
+
+
+.cards_1:hover {
+  transform: scale(1.1) !important; /* Enlarge the card by 10% on hover */
+  cursor: pointer; /* Change the cursor to indicate interactivity */
+}
+
+
+.modal-body {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+}
+
+
+.btn-secondary {
+
+border: none;
+border-radius: 15px;
+background-color: #38B772;
+color: #FFFFFF;
+font-size: 16px;
+
+
+}
+
+.modal-title {
+
+text-align: center;
+
+}
+
+
+
 
 
 .log_icon {
 
 height: 80px;
-width: 80px;
+width: 80px !important;
 padding: 5px;
 
 }
