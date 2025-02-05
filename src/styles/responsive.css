@@ -6,7 +6,6 @@
 
 display: flex;
 flex-direction: column;
-z-index: -1;
 
 
     }
@@ -157,6 +156,55 @@ flex-direction: column;
 }
 
 
+.form_black {
+
+margin-top: 250px;
+width: 90%;
+min-height: 200px;
+padding: 15px;
+padding-top: 30px;
+padding-bottom: 30px;
+}
+
+
+.cards_main_div {
+
+
+margin-top: 500px;
+padding-bottom: 20px;
+
+
+}
+
+
+.second_component_form {
+
+
+display: none;
+
+
+}
+
+.cards_1 {
+
+justify-content: center;
+text-align: center;
+align-items: center;
+
+
+}
+.cards_heading {
+
+text-align: center;
+}
+
+
+.cards_1 p {
+
+text-align: center;
+
+
+}
 
 
 
@@ -248,7 +296,6 @@ z-index: 9999999999999999999 !important;
     gap: 5% !important;
     background-color: #f9f9f9;
     padding: 20px;
-    border-radius: 8px;
     right: 0; /* Slide the menu in */
     animation: slideFromRight 0.3s ease-in-out forwards; /* Apply animation when opening */
     opacity: 1 !important;
@@ -357,9 +404,10 @@ font-size: 13px;
 }
 
 .close-menu {
-  position: fixed;
+  position: relative;
   top: 20px;
-  right: 20px;
+  right: 20px; /* Position it on the right side */
+  left: auto; /* Reset left to avoid conflicts */
 }
 
 

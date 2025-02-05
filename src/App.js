@@ -3,6 +3,8 @@ import Layout from "../src/layout";
 import Homepage from "../src/pages/homepage";
 import Formpage from '../src/pages/formpage'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 import "./styles/style.css";
 import "./styles/footer.css";
 import "./styles/header.css";

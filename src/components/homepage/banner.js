@@ -5,7 +5,7 @@ import "flatpickr/dist/flatpickr.min.css";
 
 
 
-const banner = () => {
+const Banner = () => {
   return (
     <div className="main_section">
     <div className='banner_main_div'>
@@ -24,19 +24,28 @@ const banner = () => {
 </Form.Group>
 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
   <Form.Label className="form_label_banner">Check In</Form.Label>
-  <Flatpickr 
-    className="form-control" 
-    options={{ enableTime: true, dateFormat: "m/d/Y H:i" }} 
-    placeholder='Select Date & Time'
-  />
+  <Flatpickr
+  className="form-control"
+  options={{
+    enableTime: true,
+    dateFormat: "m/d/Y H:i",
+    disableMobile: true // Ensures the picker works on mobile devices
+  }}
+  placeholder="Select Date & Time"
+/>
+
 </Form.Group>
 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
   <Form.Label className="form_label_banner">Check In</Form.Label>
-  <Flatpickr 
-    className="form-control" 
-    options={{ enableTime: true, dateFormat: "m/d/Y H:i" }} 
-    placeholder='Select Date & Time'
-  />
+  <Flatpickr
+  className="form-control"
+  options={{
+    enableTime: true,
+    dateFormat: "m/d/Y H:i",
+    disableMobile: true
+  }}
+  placeholder="Select Date & Time"
+/>
 </Form.Group>
 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
   <button className="button_form_black">Submit</button>
@@ -46,4 +55,4 @@ const banner = () => {
   )
 }
 
-export default banner
+export default Banner

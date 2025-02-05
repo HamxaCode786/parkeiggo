@@ -25,6 +25,18 @@ const Header = () => {
     return location.pathname === path;
   };
 
+window.addEventListener("scroll", function () {
+  const header = document.querySelector(".header_man_div");
+  if (window.scrollY > 100) {
+    header.style.height = "55px"; // Reduced height
+    header.style.transition = "height 0.3s ease";
+  } else {
+    header.style.height = "65px"; // Original height
+  }
+});
+
+
+
   return (
     <div className="header_man_div">
       <div className="logo_div"><img className="header_logo" src={Parkeiggo} /></div>
