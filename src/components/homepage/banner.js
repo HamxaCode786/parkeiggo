@@ -2,22 +2,96 @@ import React, { useContext } from 'react';
 import Form from "react-bootstrap/Form";
 import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-import { FormContext } from '../../context/formcontext';  // Import the context
+import { useFormData  } from '../../context/formcontext';  // Import the context
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
+
 
 const Banner = () => {
-  const { formData, setFormData, handleInputChange } = useContext(FormContext);  // Access form data and handler
+  
   const navigate = useNavigate();
+  const { setFormData1 } = useFormData();
+
+  const [formData, setFormData] = useState({
+    location: '',
+    checkInDate: '',
+    checkInTime: '',
+    checkOutDate: '',
+    checkOutTime: '',
+  });
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Format the dates and times in the required format
+    const formatDate = (date) => {
+      // Check if the date is valid
+      const d = new Date(date);
+      if (isNaN(d.getTime())) {
+        console.error("Invalid date:", date); // Log invalid date for debugging
+        return ''; // Return empty string or handle the error as needed
+      }
+      return d.toISOString().split('T')[0]; // Extract the date part (YYYY-MM-DD)
+    };
+  
+    const formatTime = (time) => {
+      // Ensure that time exists and is valid before formatting
+      if (!time) return ''; // Handle empty or invalid time
+    
+      const timeParts = time.split(' '); // Split into time and period (AM/PM) if available
+      let formattedTime = timeParts[0]; // Use the time part
+    
+      if (timeParts[1] && (timeParts[1] === 'AM' || timeParts[1] === 'PM')) {
+        const [hours, minutes] = formattedTime.split(':');
+        let hoursIn24 = parseInt(hours, 10);
+        if (timeParts[1] === 'PM' && hoursIn24 < 12) {
+          hoursIn24 += 12;
+        } else if (timeParts[1] === 'AM' && hoursIn24 === 12) {
+          hoursIn24 = 0; // Convert 12 AM to 00
+        }
+        formattedTime = `${hoursIn24.toString().padStart(2, '0')}:${minutes}`;
+      }
+    
+      // Ensure the time has the "hh:mm" format (add ':00' if seconds are missing)
+      const [hour, minute] = formattedTime.split(':');
+      return `${hour}:${minute || '00'}`; // If no minute, default to "00"
+    };
+    
+    const payload = {
+      location: formData.location,
+      checkInDate: formatDate(formData.checkInDate), // Ensure the date is in YYYY-MM-DD format
+      checkInTime: formatTime(formData.checkInTime), // Ensure the time is in hh:mm format
+      checkOutDate: formatDate(formData.checkOutDate), // Ensure the date is in YYYY-MM-DD format
+      checkOutTime: formatTime(formData.checkOutTime), // Ensure the time is in hh:mm format
+    };
+  
+    // Send the payload to the API endpoint using axios
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/api/reservations/', payload, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      // Handle the success response
+      console.log('Form data successfully submitted:', response.data);
+      setFormData1(response.data);
+      navigate('/form', { state: { formData } });
+    } catch (error) {
+      console.error('Error submitting form data:', error);
+    }
+};
 
   
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Set the data in the context on submit (if needed)
-    setFormData(formData);  // This is where we pass the form data to context
-
-    // Redirect to /form and pass form data as state
-    navigate('/form', { state: { formData } });
+  const handleInputChange = (field, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [field]: value,
+    }));
   };
+  
+  
 
   return (
     <div className="main_section">

@@ -5,9 +5,12 @@ import Swal from "sweetalert2";
 import Formright from "./formrightcomponent";
 import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
-
+import { useFormData  } from "../../context/formcontext";
+import { useEffect } from "react";
+import { MdDescription } from "react-icons/md";
 
 const BookingForm = () => {
+  const { formData1 } = useFormData();
   const [phone, setPhone] = useState('');
   const [formData, setFormData] = useState({
     fullName: "",
@@ -19,19 +22,74 @@ const BookingForm = () => {
     plate: "",
     brand: "",
     carDescription: "",
+    checkIn: "", // Will update after formData1 is available
+    checkOut: "", // Will update after formData1 is available
+    parkingTime: "", // Will update after formData1 is available
+    priceCalculated: "", // Will update after formData1 is available
+    carDescription: "",
   });
 
+  useEffect(() => {
+    if (formData1) {
+      setFormData((prevState) => ({
+        ...prevState,
+        checkIn: formData1.checkInDate || "",
+        checkOut: formData1.checkOutDate || "",
+        parkingTime: formData1.totalTime || "",
+        priceCalculated:  formData1.calculatedPrice || "",
+      }));
+    }
+  }, [formData1]); // Run when formData1 changes
+
+  console.log("Form Data:", formData);
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  
+  // To handle the phone input specifically
+  const handlePhoneChange = (phone) => {
+    setPhone(phone);
+    setFormData({ ...formData, contact: phone }); // Update contact in formData
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post("https://your-api-endpoint.com/book", formData);
+    // Check if context data (formData1) is available and updated in formData
+    if (!formData.checkIn || !formData.checkOut || !formData.parkingTime || !formData.priceCalculated) {
+      Swal.fire({
+        title: "Error!",
+        text: "Some context data is missing. Please try again later.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return; // Stop form submission if context data is not available
+    }
 
-      if (response.status === 200) {
+    // Creating the payload to send to the server
+    const payload = {
+      fullName: formData.fullName,
+      email: formData.email,
+      contactInfo: formData.contact || phone, // Use phone if contact is not available
+      location: formData.location,
+      carType: formData.carType,
+      model: formData.model,
+      plate: formData.plate,
+      brand: formData.brand,
+      carDescription: formData.carDescription,
+      checkIn: formData.checkIn, // Add checkIn from state or context
+      checkOut: formData.checkOut, // Add checkOut from state or context
+      parkingTime: formData.parkingTime, // Add parkingTime from state or context
+      priceCalculated: formData.priceCalculated, // Add priceCalculated from state or context
+      car_description: formData.carDescription,
+    };
+
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/api/carreservations/", payload);
+
+      if (response.status === 201) {
         Swal.fire({
           title: "Success!",
           text: "Your booking has been completed successfully.",
@@ -49,6 +107,10 @@ const BookingForm = () => {
           plate: "",
           brand: "",
           carDescription: "",
+          checkIn: "",
+          checkOut: "",
+          parkingTime: "",
+          priceCalculated: "",
         });
       }
     } catch (error) {
@@ -60,6 +122,8 @@ const BookingForm = () => {
       });
     }
   };
+
+
 
   return (
     <div className="form_main_div">
@@ -100,8 +164,8 @@ const BookingForm = () => {
               <Form.Label className="form_label_banner2">Contact Info</Form.Label>
               <PhoneInput
         defaultCountry="ua"
-        value={formData.contact}
-        onChange={(phone) => setPhone(phone)}
+        value={phone}
+        onChange={handlePhoneChange}
       />
             </Form.Group>
 
